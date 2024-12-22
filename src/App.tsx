@@ -1,8 +1,7 @@
-import React, { Suspense } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { ErrorBoundary } from "react-error-boundary";
+import React from "react";
 import { ShoppingCart } from "./components/ShoppingCart";
-import CartProvider from "./components/Cart";
+import CartProvider from "./utils/cartContext";
+import { ItemList } from "./components/ItemList";
 
 // Pages
 const Home = React.lazy(() => import("./pages/Home"));
@@ -10,6 +9,7 @@ const Home = React.lazy(() => import("./pages/Home"));
 const App = () => {
   return (
     <CartProvider>
+      <ItemList />
       <ShoppingCart />
     </CartProvider>
   );
